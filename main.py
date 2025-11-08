@@ -55,7 +55,7 @@ def main():
                 if obj.check_collision(shot):
                     log_event("asteroid_shot")
                     shot.kill()
-                    obj.kill()
+                    obj.split()
 
         updatable.update(dt)
 
