@@ -17,6 +17,16 @@ class Asteroid(CircleShape):
     def update(self, dt):
         self.position += self.velocity * dt
 
+    def get_score_value(self):
+        from constants import (ASTEROID_MAX_RADIUS, SCORE_LARGE_ASTEROID, 
+                             SCORE_MEDIUM_ASTEROID, SCORE_SMALL_ASTEROID)
+        if self.radius >= ASTEROID_MAX_RADIUS:
+            return SCORE_LARGE_ASTEROID
+        elif self.radius >= ASTEROID_MIN_RADIUS * 2:
+            return SCORE_MEDIUM_ASTEROID
+        else:
+            return SCORE_SMALL_ASTEROID
+
     def split(self):
         self.kill()
 
